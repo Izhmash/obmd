@@ -39,7 +39,7 @@ type TokenResp struct {
 
 // Response body for successful node power status requests.
 type PowerResp struct {
-	string string `json:"power_status"`
+	Resp string `json:"power_status"`
 }
 
 func makeHandler(config *Config, daemon *Daemon) http.Handler {
@@ -211,7 +211,7 @@ func makeHandler(config *Config, daemon *Daemon) http.Handler {
 			} else {
 				w.Header().Set("Content-Type", "application/json")
 				json.NewEncoder(w).Encode(&PowerResp{
-					string: status,
+					Resp: status,
 				})
 			}
 		}))
