@@ -20,7 +20,7 @@ A config file is needed, whose contents should look like:
 	"DBPath":     	"./obmd.db",
 	"ListenAddr": 	":8080",
 	"AdminToken": 	"44d5ebcb1aae23bfefc8dca8314797eb",
-	"WebProtocol": 	"https",
+	"Insecure": 	false,
 	"TLSCert":	"server.crt",
 	"TLSKey":	"server.key"
 }
@@ -37,8 +37,9 @@ running:
 
     ./console-service -gen-token
 
-The OBMd web protocol can be "http" or "https".  If https is chosen,
-the "TLSCert" and "TLSKey" fields must be filled in.
+The OBMd web protocol can be insecure (http) or not (https).
+If `Insecure` is `false`, the `TLSCert` and `TLSKey` fields must be filled in.
+If `Insecure` is `true`, be sure to leave the TLS fields blank.
 
 By default, the server looks for the config file at `./config.json`, but
 the `-config` command line option can be used to override this.
